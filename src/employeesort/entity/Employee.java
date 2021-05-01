@@ -1,24 +1,18 @@
 package employeesort.entity;
 
-import employeesort.entity.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 
  class Employee   {
 	 
-	 int empId;
-	 String name;
-     String email;
-     String phone;
-     String createdBy;
-     Date createdOn;
-     String updatedBy;
-     Date updatedOn;
-     Date dateOfJoining;
+	 private int empId;
+	 private String name;
+     private String email;
+     private String phone;
+     private String createdBy;
+     private Date createdOn;
+     private String updatedBy;
+     private Date updatedOn;
+     private Date dateOfJoining;
      
      public Employee(int empId, String name, String email, String phone, String createdBy, Date createdOn,
  			String updatedBy, Date updatedOn, Date dateOfJoining) {
@@ -87,7 +81,7 @@ import java.util.Date;
 	}
 
 }
-	
+ 
 
 
  

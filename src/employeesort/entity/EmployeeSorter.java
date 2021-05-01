@@ -2,27 +2,27 @@ package employeesort.entity;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.List;
 public class EmployeeSorter {
 	
-	    ArrayList<Employee> employee = new ArrayList<Employee>();
+	    List<Employee> employee = new ArrayList<Employee>();
 	    
-	    public EmployeeSorter(ArrayList employee) {
+	    public EmployeeSorter(List<Employee> employee) {
 	        this.employee = employee;
 	    }
-	    public ArrayList getSortedEmployeeById() {
+	    public List<Employee> getSortedEmployeeById() {
 	        Collections.sort(employee, ( a,  b)-> {
 	             return  a.getEmpId()-b.getEmpId();
 	          });
 	        return employee;
 	    }
-	    public ArrayList getSortedEmployeeByName() {
+	    public List<Employee> getSortedEmployeeByName() {
 	        Collections.sort(employee,( a,  b)-> {
 	            return (int) (a.getName().compareTo(b.getName()));
 	        });
 	        return employee;
 	    }
-	    public ArrayList getSortedEmployeeByDateOfJoining() {
+	    public List<Employee> getSortedEmployeeByDateOfJoining() {
 	        Collections.sort(employee,( a,  b)-> {
 	            return (int) (a.getDateOfJoining().compareTo(b.getDateOfJoining()));
 	        });

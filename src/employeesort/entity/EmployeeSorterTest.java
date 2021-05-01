@@ -3,12 +3,16 @@ package employeesort.entity;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.logging.Logger;
+
 import org.junit.Before;
 import org.junit.Test;
 
 public class EmployeeSorterTest {
 	EmployeeSorter employeeSorter;
 	
+	private static final Logger logger = java.util.logging.Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	@Before
 	public void setUp() throws Exception {
         Employee emp1 = new Employee(3,"jahnavi" , "jahnavi@gmail.com","7787685453","sri",new Date(),"admin",new Date(),
@@ -31,7 +35,7 @@ public class EmployeeSorterTest {
         		new SimpleDateFormat("dd/MM/yyyy").parse("21/04/2021"));
         Employee emp10 = new Employee(9,"kalyan" , "kalyan@gmail.com","8787685453","sri",new Date(),"admin",new Date(),
         		new SimpleDateFormat("dd/MM/yyyy").parse("26/04/2021"));
-        ArrayList<Employee> employeeList = new ArrayList<>();
+        List<Employee> employeeList = new ArrayList<>();
         employeeList.add(emp1);
         employeeList.add(emp2);
         employeeList.add(emp3);
@@ -42,34 +46,38 @@ public class EmployeeSorterTest {
         employeeList.add(emp8);
         employeeList.add(emp9);
         employeeList.add(emp10);
-        System.out.println("\n -----Unsorted Employees----- ");
+        logger.info("\n -----Unsorted Employees----- ");
         for (Object employee : employeeList) {
-            System.out.println(employee);
+        	System.out.println(employee);
         }
         employeeSorter = new EmployeeSorter(employeeList);
     }
+	
     @Test
     public void testGetSortedEmployeeById() throws Exception {
-    	System.out.println("\n -----Sorted Employee by Id: Ascending-----");
-        ArrayList sortedEmployee = employeeSorter.getSortedEmployeeById();
+    	logger.info("\n -----Sorted Employee by Id: Ascending-----");
+    	List<Employee> sortedEmployee = employeeSorter.getSortedEmployeeById();
         for (Object employee : sortedEmployee) {
-            System.out.println(employee);
+        	System.out.println(employee);
         }
     }
+    
     @Test
     public void testGetSortedEmployeeByName() throws Exception {
-        System.out.println("\n -----Sorted Employee by name: Ascending-----");
-        ArrayList sortedEmployee = employeeSorter.getSortedEmployeeByName();
+        logger.info("\n -----Sorted Employee by name: Ascending-----");
+        List<Employee> sortedEmployee = employeeSorter.getSortedEmployeeByName();
         for (Object employee : sortedEmployee) {
             System.out.println(employee);
         }
     }
+    
     @Test
     public void testGetSortedEmployeeByDateOfJoining() throws Exception {
-        System.out.println("\n -----Sorted Employee by Date of joining: Ascending-----");
-        ArrayList sortedEmployee = employeeSorter.getSortedEmployeeByDateOfJoining();
+        logger.info("\n -----Sorted Employee by Date of joining: Ascending-----");
+        List<Employee> sortedEmployee = employeeSorter.getSortedEmployeeByDateOfJoining();
         for (Object employee : sortedEmployee) {
             System.out.println(employee);
         }
     }
+    
 }

@@ -14,10 +14,7 @@ public class MyCallableFuture {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-			
 		}
 		service.shutdown();
 	}
-
-
 }
