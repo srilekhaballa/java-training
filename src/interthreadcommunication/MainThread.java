@@ -1,17 +1,19 @@
 package interthreadcommunication;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public class MainThread {
 	
-	
+	private static final Logger logger = LogManager.getLogger("MainThread.class");
 	public static void main(String[] args) throws InterruptedException {
-		// TODO Auto-generated method stub
 		MyThread t=new MyThread();
 		t.start();
 		synchronized(t) {
-		System.out.println("Main thread is going to wait");
+		logger.info("Main thread is going to wait");
 		t.wait();
-		System.out.println("Main thread notified");
-		System.out.println(t.sum);
+		logger.info("Main thread notified");
+		logger.info(t.sum);
 	}
 		}
 

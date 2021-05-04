@@ -48,7 +48,7 @@ public class EmployeeSorterTest {
         employeeList.add(emp10);
         logger.info("\n -----Unsorted Employees----- ");
         for (Object employee : employeeList) {
-        	System.out.println(employee);
+        	logger.info("{}"+employee);
         }
         employeeSorter = new EmployeeSorter(employeeList);
     }
@@ -58,7 +58,7 @@ public class EmployeeSorterTest {
     	logger.info("\n -----Sorted Employee by Id: Ascending-----");
     	List<Employee> sortedEmployee = employeeSorter.getSortedEmployeeById();
         for (Object employee : sortedEmployee) {
-        	System.out.println(employee);
+        	logger.info("{}"+employee);  //assert statement   obj1<obj2
         }
     }
     
@@ -67,7 +67,7 @@ public class EmployeeSorterTest {
         logger.info("\n -----Sorted Employee by name: Ascending-----");
         List<Employee> sortedEmployee = employeeSorter.getSortedEmployeeByName();
         for (Object employee : sortedEmployee) {
-            System.out.println(employee);
+        	logger.info("{}"+employee);
         }
     }
     
@@ -76,7 +76,7 @@ public class EmployeeSorterTest {
         logger.info("\n -----Sorted Employee by Date of joining: Ascending-----");
         List<Employee> sortedEmployee = employeeSorter.getSortedEmployeeByDateOfJoining();
         for (Object employee : sortedEmployee) {
-            System.out.println(employee);
+        	logger.info("{}"+employee);
         }
     }
     

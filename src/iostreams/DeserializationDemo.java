@@ -5,8 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-public class DeserializationDemo {
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
+public class DeserializationDemo {
+	
+	private static final Logger logger = LogManager.getLogger("DeserializationDemo.class");
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		FileInputStream fis=new FileInputStream("C:/Users/devim/java-training/Emp.ser");
 		ObjectInputStream ois=new ObjectInputStream(fis);
@@ -14,13 +18,9 @@ public class DeserializationDemo {
 		Object obj=ois.readObject();
 		Employee emp=(Employee)obj;
 		
-		System.out.println("Employee id: "+emp.id);
-		System.out.println("Employee id: "+emp.name);
-		System.out.println("Employee id: "+emp.salary);
-		System.out.println("Employee id: "+emp.ssn);
-		
-		
-
+		logger.info("Employee id: "+emp.id);
+		logger.info("Employee id: "+emp.name);
+		logger.info("Employee id: "+emp.salary);
+		logger.info("Employee id: "+emp.ssn);
 	}
-
 }

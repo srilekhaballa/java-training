@@ -1,11 +1,17 @@
 package synchronization.blocks;
 
+import org.apache.log4j.Logger;
+
+import reflection.Calculator;
+
 public class DisplayMessage {
+	
+	private static final Logger log = Logger.getLogger(DisplayMessage.class);
 	public synchronized void sayHello(String name) {
 		
 		synchronized(this) {
 		for(int i=1;i<10;i++) {
-			System.out.println("How are you"+name);
+			log.info("How are you"+name);
 			try {
 				Thread.sleep(200);
 			}
@@ -17,7 +23,6 @@ public class DisplayMessage {
 
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 

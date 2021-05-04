@@ -1,16 +1,20 @@
 package jvm;
 import java.lang.reflect.Method;
 
-public class Test  {
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
+public class Test  {
+	
+	private static final Logger logger = LogManager.getLogger("Test.class");
 	public static void main(String[] args) throws ClassNotFoundException {
-		// TODO Auto-generated method stub
+		
 		Class c=Class.forName("jvm.User"); //package 
 		Method[] methods=c.getDeclaredMethods();
 		for(Method method : methods) {
-			System.out.println(method.getName());
+			logger.info(method.getName());
 		}
-			System.out.println(methods.length);
+			logger.info(methods.length);
 	}
 
 }

@@ -1,12 +1,17 @@
 package reflection;
 
+import org.apache.log4j.Logger;
+
+import package2.B;
+
 public class Calculator {
 		
+		private static final Logger log = Logger.getLogger(Calculator.class);
 		private double num1;
 		private double num2;
 		
 	Calculator(){
-		System.out.println("Default Constructor");
+		log.info("Default Constructor");
 	}
 	
 	Calculator(double num1,double num2){

@@ -14,13 +14,8 @@ public class Employee implements Serializable {
 		this.ssn=ssn;
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		
-		
 
 	}
-
 }
 
 

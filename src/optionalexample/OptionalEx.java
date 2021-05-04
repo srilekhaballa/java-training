@@ -1,10 +1,12 @@
 package optionalexample;
 
 import java.util.Optional;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 public class OptionalEx {
 	
-	private static final Logger logger = java.util.logging.Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	private static final Logger log = Logger.getLogger(OptionalEx.class);
+	
 	public static void main(String[] args)
 	    {
 	        String[] str = new String[5];
@@ -12,14 +14,14 @@ public class OptionalEx {
 	        str[2] = "Geeks Classes are coming soon";
 	  
 	        Optional<String> empty = Optional.empty();
-	        System.out.println(empty);
+	        log.info(empty);
 	  
 	        Optional<String> value = Optional.of(str[2]);
-	        System.out.println(value.get());
+	        log.info(value.get());
 	        
-	        System.out.println(value.hashCode());
+	        log.info(value.hashCode());
 	        
-	        System.out.println(value.isEmpty());
+	        log.info(value.isEmpty());
 	    }
 	}
 

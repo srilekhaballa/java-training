@@ -5,14 +5,18 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class DateToStringExample {
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
+public class DateToStringExample {
+	
+	private static final Logger logger = LogManager.getLogger("DateToStringExample.class");
     public static void main(String[] args) {
         Date date = Calendar.getInstance()
                 .getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-dd-mm");
         String strDate = dateFormat.format(date);
-        System.out.println("Converted String" + strDate);
+        logger.info("Converted String" + strDate);
 
     }
 

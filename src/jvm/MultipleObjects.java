@@ -1,7 +1,11 @@
 package jvm;
 
-public class MultipleObjects {
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
+public class MultipleObjects {
+	
+	private static final Logger logger = LogManager.getLogger("MultipleObjects.class");
 	public static void main(String[] args) {
 		User u1=new User();
 		Class c1=u1.getClass();
@@ -9,12 +13,12 @@ public class MultipleObjects {
 		User u2=new User();
 		Class c2=u2.getClass();
 		
-		System.out.println(c1.hashCode());
-		System.out.println(c2.hashCode());
-		System.out.println(c1 == c2);
+		logger.info(c1.hashCode());
+		logger.info(c2.hashCode());
+		logger.info(c1 == c2);
 		
-		System.out.println(c1.getClassLoader());
-		System.out.println(String.class.getClassLoader());
+		logger.info(c1.getClassLoader());
+		logger.info(String.class.getClassLoader());
 
 	}
 

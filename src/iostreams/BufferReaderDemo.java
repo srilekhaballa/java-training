@@ -6,10 +6,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public class BufferReaderDemo {
 
+	private static final Logger logger = LogManager.getLogger("BufferReaderDemo.class");
 	public static void main(String[] args) {
-		
 		
 		int count=0;
 		
@@ -22,20 +25,15 @@ public class BufferReaderDemo {
 			while((line= br.readLine())!=null) {
 				StringTokenizer st=new StringTokenizer(line);
 				while(st.hasMoreTokens()) {
-					System.out.println(st.nextToken());
+					logger.info(st.nextToken());
 					count++;
 				}}
-			System.out.println("No of words in file are: "+count);
+			logger.info("No of words in file are: "+count);
 		}catch( IOException e) {
 			e.printStackTrace();
 		}
 		
 		}
-		
-		
-		
-		
-		
 	}
 
 

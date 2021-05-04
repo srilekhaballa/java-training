@@ -7,5 +7,4 @@ public class User {
 		public String getemail() {
 			return "srilekhaballa@gmail.com";
 		}
-	
 }

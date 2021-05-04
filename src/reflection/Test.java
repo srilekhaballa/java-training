@@ -4,28 +4,27 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
-public class Test {
+import org.apache.log4j.Logger;
 
+public class Test {
+	
+	private static final Logger log = Logger.getLogger(Test.class);
 	public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		
 		Class<?> myClass=Class.forName(Calculator.class.getName());
-		System.out.println(myClass.getName());
+		log.info(myClass.getName());
 		Constructor<?>[] constructors=myClass.getConstructors();
-		System.out.println(Arrays.toString(constructors));
-		System.out.println(Arrays.toString(myClass.getMethods()));
+		log.info(Arrays.toString(constructors));
+		log.info(Arrays.toString(myClass.getMethods()));
 		
 		Constructor<?> constructor=myClass.getConstructor(null);
 		
-		System.out.println(constructor.newInstance(null));
+		log.info(constructor.newInstance(null));
 		
 		
 		Constructor<?> constructor2=myClass.getConstructor(double.class,double.class);
-		System.out.println(constructor2.newInstance(5,10)); 
+		log.info(constructor2.newInstance(5,10)); 
 		
-		/*Method method=myClass.getMethod("getNum1", null);
-		System.out.println(method.invoke(myObj, null));*/
-	
-	
 	}
 
 }

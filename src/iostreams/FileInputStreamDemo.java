@@ -3,20 +3,23 @@ package iostreams;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException; 
+import java.io.IOException;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger; 
 
 public class FileInputStreamDemo {
 
+	private static final Logger logger = LogManager.getLogger("FileInputStreamDemo.class");
 	public static void main(String[] args) {
 		FileInputStream fis= null;
 		try {
 		fis=new FileInputStream(new File("/Users/devim/Documents/Demo/file.txt"));
-		System.out.println("File opened");
-		
+		logger.info("File opened");
 		
 		int i;
 		while((i=fis.read())!= -1) {
-			System.out.println((char)i);
+			logger.info((char)i);
 		}
 		}
 		catch(FileNotFoundException e) {
@@ -32,7 +35,7 @@ public class FileInputStreamDemo {
 			catch(IOException e) {
 				e.printStackTrace();
 			}
-			System.out.println("file closed");
+			logger.info("file closed");
 		}
 	}
 

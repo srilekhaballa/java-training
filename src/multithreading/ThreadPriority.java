@@ -1,7 +1,11 @@
 package multithreading;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public class ThreadPriority extends Thread{
 	
+	private static final Logger logger = LogManager.getLogger("ThreadPriority.class");
 	public static void main(String[] args) throws InterruptedException{
 		ThreadPriority t=new ThreadPriority();
 		t.setPriority(MAX_PRIORITY);
@@ -13,15 +17,13 @@ public class ThreadPriority extends Thread{
 		t1.setName("min_prior thread t1");
 		t1.start();
 		
-		//Thread currentthread=Thread.currentThread();
-		//System.out.println("Thread name is:"+currentthread.getName());
+		
 		
 		
 	}
 	public void run() {
-		//Thread currentthread=Thread.currentThread();
-		//currentthread.setName("print 200 numbers");
-		System.out.println("Thread name is: " + Thread.currentThread().getName());
+		
+		logger.info("Thread name is: " + Thread.currentThread().getName());
 	}
 
 }

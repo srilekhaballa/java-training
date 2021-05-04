@@ -2,12 +2,17 @@ package multithreading;
 
 import java.util.Scanner;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public class Joindemo extends Thread{
-		static int n,sum=0;
+	
+	private static final Logger logger = LogManager.getLogger("Joindemo.class");
+	static int n,sum=0;
 	public static void main(String[] args) {
 		long starttime=System.currentTimeMillis();
-		System.out.println("Sum of first N numbers: ");
-		System.out.println("Enter number: ");
+		logger.info("Sum of first N numbers: ");
+		logger.info("Enter number: ");
 		Scanner scanner=new Scanner(System.in);
 		Joindemo.n=scanner.nextInt();
 		Joindemo j=new Joindemo();
@@ -19,18 +24,15 @@ public class Joindemo extends Thread{
 			e.printStackTrace();
 		}
 		
-		System.out.println("Sum of first "+Joindemo.n+" numbers: "+Joindemo.sum);
+		logger.info("Sum of first "+Joindemo.n+" numbers: "+Joindemo.sum);
 		long endtime=System.currentTimeMillis();
 		//System.out.println(Joindemo.sum);
-		System.out.println("execution time:"+(endtime-starttime)/1000 +"seconds");
-		System.out.println("process doesnt intervene the first thread");
+		logger.info("execution time:"+(endtime-starttime)/1000 +"seconds");
+		logger.info("process doesnt intervene the first thread");
 	}
 	public void run(){
 		for(int i=1;i<n+1;i++) {
 			sum += i;
-			
-			
 	}
-		
 }
 }
