@@ -13,8 +13,6 @@ class DateTimeUtilTest {
 		
 	@Test
 	public void testCurrentTimeStampInUTC() {
-		Instant instant = Instant.now();
-		TimeZone.setDefault( TimeZone.getTimeZone("UTC"));
 		Instant currentTimeStampInUTC = DateTimeUtil.currentTimeStampInUTC();
 		assertNotNull(currentTimeStampInUTC);
 	}
