@@ -1,6 +1,6 @@
 package timezone;
 
-import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.OffsetDateTime;
@@ -8,7 +8,6 @@ import java.time.ZoneOffset;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
-
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -27,25 +26,15 @@ public class DateTimeUtil {
 		return instant;
 	}
 	
-	public static  String convertUTCToLocalTimeZone(String Date) {
-		String converted_date = "";
-        try {
+	public static Date convertUTCToLocalTimeZone(Date dateFrom) throws ParseException {
+        SimpleDateFormat sdfFrom = new SimpleDateFormat ("yyyy/MM/dd HH:mm:ss");
 
-            DateFormat utcFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            utcFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        SimpleDateFormat sdfTo = new SimpleDateFormat ("yyyy/MM/dd HH:mm:ss");
+        sdfTo.setTimeZone(TimeZone.getTimeZone("IST"));
 
-            Date date = utcFormat.parse(Date);
-
-            DateFormat currentTFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            currentTFormat.setTimeZone(TimeZone.getTimeZone(getCurrentTimeZone()));
-
-            converted_date =  currentTFormat.format(date);
-        }catch (Exception e){ 
-        	e.printStackTrace();
-        }
-
-        return converted_date;
-	}
+        Date dateTo = sdfFrom.parse(sdfTo.format(dateFrom));
+        return dateTo;
+    }
 
 	public static String getCurrentTimeZone(){
 	        TimeZone tz = Calendar.getInstance().getTimeZone();
@@ -59,11 +48,12 @@ public class DateTimeUtil {
         return date;
 	}
 	
-	public static void main(String[] args) {
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) throws ParseException {
 		
 		BasicConfigurator.configure();
 		logger.info(currentTimeStampInUTC());
-		logger.info("convert UTC to Local timezone: "+convertUTCToLocalTimeZone("2021-05-28 09:04:06"));
+		logger.info("convert UTC to Local timezone: "+convertUTCToLocalTimeZone(new Date("Mon May 31 08:42:43 UTC 2021")));
 		logger.info("convert local to UTC timezone: "+convertLocalToUTC());
 	}
 }
