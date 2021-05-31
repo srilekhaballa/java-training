@@ -17,11 +17,7 @@ class DateTimeUtilTest {
 		assertNotNull(currentTimeStampInUTC);
 	}
 
-	@Test
-	public void testConvertUTCToLocalTimeZone() {
-		assertEquals(DateTimeUtil.convertUTCToLocalTimeZone("2021-05-28 09:04:06"),"2021-05-28 14:34:06");
-	}
-	
+		
 	@Test
 	public void testConvertLocalToUTC() {
 		Date convertLocalToUTC = DateTimeUtil.convertLocalToUTC();
